@@ -6,8 +6,13 @@
   align-items: center;
   justify-content: center;
   background: var(--tikitaky-background);
-  background-image: 
-    linear-gradient(90deg, rgba(139, 69, 19, 0.1) 0%, rgba(139, 69, 19, 0.05) 50%, rgba(139, 69, 19, 0.1) 100%),
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(139, 69, 19, 0.1) 0%,
+      rgba(139, 69, 19, 0.05) 50%,
+      rgba(139, 69, 19, 0.1) 100%
+    ),
     repeating-linear-gradient(
       0deg,
       transparent,
@@ -81,15 +86,29 @@
 }
 
 @keyframes tikitaky-celebration {
-  0%, 100% { transform: translateX(-50%) scale(1); }
-  25% { transform: translateX(-50%) scale(1.1) rotate(5deg); }
-  50% { transform: translateX(-50%) scale(1.2); }
-  75% { transform: translateX(-50%) scale(1.1) rotate(-5deg); }
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+  25% {
+    transform: translateX(-50%) scale(1.1) rotate(5deg);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.2);
+  }
+  75% {
+    transform: translateX(-50%) scale(1.1) rotate(-5deg);
+  }
 }
 
 @keyframes tikitaky-bounce {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @media (max-width: 768px) {
@@ -97,7 +116,7 @@
     margin: 0 var(--tikitaky-spacing-md);
     padding: var(--tikitaky-spacing-lg);
   }
-  
+
   .tikitaky-confirmation-state::before {
     font-size: 24px;
   }

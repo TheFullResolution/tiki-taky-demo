@@ -1,13 +1,22 @@
 .tikitaky-booking-summary {
   background: 
     /* Aged parchment base */
-    radial-gradient(circle at 30% 20%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 70% 80%, rgba(160, 82, 45, 0.03) 0%, transparent 40%),
-    linear-gradient(45deg, 
-      rgba(245, 230, 211, 0.98) 0%, 
-      rgba(245, 230, 211, 1) 25%, 
-      rgba(240, 220, 200, 0.99) 50%, 
-      rgba(245, 230, 211, 1) 75%, 
+    radial-gradient(
+      circle at 30% 20%,
+      rgba(139, 69, 19, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      rgba(160, 82, 45, 0.03) 0%,
+      transparent 40%
+    ),
+    linear-gradient(
+      45deg,
+      rgba(245, 230, 211, 0.98) 0%,
+      rgba(245, 230, 211, 1) 25%,
+      rgba(240, 220, 200, 0.99) 50%,
+      rgba(245, 230, 211, 1) 75%,
       rgba(245, 230, 211, 0.98) 100%
     ),
     var(--tikitaky-parchment);
@@ -17,7 +26,7 @@
   position: sticky;
   top: calc(var(--tikitaky-header-height) + var(--tikitaky-spacing-md));
   height: fit-content;
-  box-shadow: 
+  box-shadow:
     var(--tikitaky-shadow),
     inset 0 1px 0 rgba(255, 255, 255, 0.3),
     inset 0 -1px 0 rgba(139, 69, 19, 0.1);
@@ -31,14 +40,14 @@
   left: -3px;
   right: -3px;
   bottom: -3px;
-  background: 
-    linear-gradient(45deg, 
-      rgba(139, 69, 19, 0.8) 0%, 
-      rgba(160, 82, 45, 0.9) 25%, 
-      rgba(101, 67, 33, 0.8) 50%, 
-      rgba(160, 82, 45, 0.9) 75%, 
-      rgba(139, 69, 19, 0.8) 100%
-    );
+  background: linear-gradient(
+    45deg,
+    rgba(139, 69, 19, 0.8) 0%,
+    rgba(160, 82, 45, 0.9) 25%,
+    rgba(101, 67, 33, 0.8) 50%,
+    rgba(160, 82, 45, 0.9) 75%,
+    rgba(139, 69, 19, 0.8) 100%
+  );
   border-radius: var(--tikitaky-border-radius-large);
   z-index: -1;
 }
@@ -175,7 +184,7 @@
     position: static;
     margin-bottom: var(--tikitaky-spacing-lg);
   }
-  
+
   .tikitaky-listing-image {
     height: 150px;
   }
@@ -185,7 +194,7 @@
   .tikitaky-listing-image {
     height: 120px;
   }
-  
+
   .tikitaky-booking-summary {
     margin: 0 var(--tikitaky-spacing-md) var(--tikitaky-spacing-lg);
   }

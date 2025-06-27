@@ -1,7 +1,9 @@
 /* Clean Index CSS - No Global Conflicts with Brand Styling */
 
 /* Minimal, safe global resets only */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 

@@ -97,15 +97,28 @@
 }
 
 @keyframes tikitaky-spin-fast {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes tikitaky-magic {
-  0%, 100% { transform: translateX(-50%) scale(1); }
-  25% { transform: translateX(-50%) scale(1.2) rotate(10deg); }
-  50% { transform: translateX(-50%) scale(0.8); }
-  75% { transform: translateX(-50%) scale(1.1) rotate(-10deg); }
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+  25% {
+    transform: translateX(-50%) scale(1.2) rotate(10deg);
+  }
+  50% {
+    transform: translateX(-50%) scale(0.8);
+  }
+  75% {
+    transform: translateX(-50%) scale(1.1) rotate(-10deg);
+  }
 }
 
 @media (max-width: 768px) {

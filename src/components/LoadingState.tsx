@@ -12,7 +12,7 @@ interface LoadingStateProps {
  */
 export const LoadingState: React.FC<LoadingStateProps> = ({
   onLoadingComplete,
-  minLoadingTime = 2000
+  minLoadingTime = 2000,
 }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -23,15 +23,15 @@ export const LoadingState: React.FC<LoadingStateProps> = ({
   }, [onLoadingComplete, minLoadingTime]);
 
   return (
-    <div className="tikitaky-loading-state">
-      <div className="tikitaky-loading-container">
-        <div className="tikitaky-loading-logo">
-          <div className="tikitaky-logo-placeholder">tikitaky</div>
+    <div className='tikitaky-loading-state'>
+      <div className='tikitaky-loading-container'>
+        <div className='tikitaky-loading-logo'>
+          <div className='tikitaky-logo-placeholder'>tikitaky</div>
         </div>
-        <div className="tikitaky-loading-spinner">
-          <div className="tikitaky-spinner"></div>
+        <div className='tikitaky-loading-spinner'>
+          <div className='tikitaky-spinner'></div>
         </div>
-        <p className="tikitaky-loading-text">Preparing your booking...</p>
+        <p className='tikitaky-loading-text'>Preparing your booking...</p>
       </div>
     </div>
   );

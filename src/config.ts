@@ -26,7 +26,8 @@ export interface Booking {
 export const mockListing: Listing = {
   title: 'Luxury TikiTaky Experience in Paradise',
   location: 'Bali, Indonesia',
-  imageUrl: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+  imageUrl:
+    'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
   host: 'Travel Expert',
   rating: 4.9,
   reviewCount: 156,

@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { loadPrimer, PrimerCheckoutComponent, type InitializedPaymentMethod } from '@primer-io/primer-js';
+import {
+  loadPrimer,
+  PrimerCheckoutComponent,
+  type InitializedPaymentMethod,
+} from '@primer-io/primer-js';
 import { fetchClientToken } from './fetchClientToken';
 import { mockListing, mockBooking } from './config';
 import LoadingState from './components/LoadingState';
@@ -13,7 +17,7 @@ import './App.css';
 
 /**
  * TikiTaky Checkout Demo - Single File Application
- * 
+ *
  * This demo follows the Golden Demo Loop:
  * 1. Fake Loader (1-2 seconds)
  * 2. Checkout Page Display (booking summary + payment)
@@ -29,16 +33,18 @@ export function App() {
   // Demo flow state management
   const [currentStep, setCurrentStep] = useState<DemoStep>('loading');
   const [clientToken, setClientToken] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [showLoader, setShowLoader] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
-  
+
   // Payment method states
-  const [otherMethods, setOtherMethods] = useState<InitializedPaymentMethod[]>([]);
-  const [payPalMethod, setPayPalMethod] = useState<InitializedPaymentMethod | null>(null);
-  const [klarnaMethod, setKlarnaMethod] = useState<InitializedPaymentMethod | null>(null);
-  
+  const [otherMethods, setOtherMethods] = useState<InitializedPaymentMethod[]>(
+    [],
+  );
+  const [payPalMethod, setPayPalMethod] =
+    useState<InitializedPaymentMethod | null>(null);
+  const [klarnaMethod, setKlarnaMethod] =
+    useState<InitializedPaymentMethod | null>(null);
+
   // Primer SDK ref
   const checkoutRef = useRef<PrimerCheckoutComponent>(null);
 
@@ -47,8 +53,11 @@ export function App() {
     const initializeCheckout = async () => {
       try {
         await loadPrimer();
-        const response = await fetchClientToken('a1b2c3d4e5f6g7h8i9j0', 'klarna');
-        
+        const response = await fetchClientToken(
+          'a1b2c3d4e5f6g7h8i9j0',
+          'klarna',
+        );
+
         if (response.success && response.clientToken) {
           setClientToken(response.clientToken);
         } else {
@@ -110,7 +119,7 @@ export function App() {
         setIsProcessing(false);
       }
     });
-  }, [clientToken, loading, showLoader]);
+  }, [clientToken]);
 
   // Handle loading completion (Step 1 → Step 2)
   const handleLoadingComplete = () => {
@@ -128,54 +137,51 @@ export function App() {
   // Render based on current demo step
   if (currentStep === 'loading') {
     return (
-      <LoadingState 
+      <LoadingState
         onLoadingComplete={handleLoadingComplete}
         minLoadingTime={2000}
       />
     );
   }
 
-
   if (currentStep === 'confirmation') {
-    return (
-      <ConfirmationPage
-        onRestartDemo={handleRestartDemo}
-      />
-    );
+    return <ConfirmationPage onRestartDemo={handleRestartDemo} />;
   }
 
   // Main checkout page (Step 2)
   return (
-    <div className="tikitaky-demo-page">
+    <div className='tikitaky-demo-page'>
       {/* Processing overlay - shown over the checkout without unmounting */}
       <ProcessingOverlay isVisible={isProcessing} />
       <TikiTakyHeader />
-      <div className="tikitaky-checkout-container">
-        <div className="tikitaky-container">
-          <div className="tikitaky-checkout-content">
-            <div className="tikitaky-checkout-main">
+      <div className='tikitaky-checkout-container'>
+        <div className='tikitaky-container'>
+          <div className='tikitaky-checkout-content'>
+            <div className='tikitaky-checkout-main'>
               <h1>Confirm and pay</h1>
-              
+
               {error && (
-                <div className="tikitaky-error-message">
+                <div className='tikitaky-error-message'>
                   <p>{error}</p>
                 </div>
               )}
 
               {clientToken ? (
-                <div className="tikitaky-payment-section">
-                  <primer-checkout 
+                <div className='tikitaky-payment-section'>
+                  <primer-checkout
                     client-token={clientToken}
-                    class="primer-light-theme"
+                    class='primer-light-theme'
                     ref={checkoutRef}
                   >
-                    <primer-main slot="main">
-                      <div slot="payments" className="tikitaky-payment-methods">
+                    <primer-main slot='main'>
+                      <div slot='payments' className='tikitaky-payment-methods'>
                         {/* Express Checkout Section */}
                         {(payPalMethod || klarnaMethod) && (
-                          <div className="tikitaky-express-checkout-section">
-                            <h3 className="tikitaky-express-checkout-title">Express Checkout</h3>
-                            <div className="tikitaky-express-checkout-methods">
+                          <div className='tikitaky-express-checkout-section'>
+                            <h3 className='tikitaky-express-checkout-title'>
+                              Express Checkout
+                            </h3>
+                            <div className='tikitaky-express-checkout-methods'>
                               {payPalMethod && (
                                 <primer-payment-method
                                   type={payPalMethod.type}
@@ -187,7 +193,7 @@ export function App() {
                                 ></primer-payment-method>
                               )}
                             </div>
-                            <div className="tikitaky-express-checkout-divider">
+                            <div className='tikitaky-express-checkout-divider'>
                               <span>or pay with card</span>
                             </div>
                           </div>
@@ -195,32 +201,35 @@ export function App() {
 
                         {/* Enhanced Card Form */}
                         <primer-card-form>
-                          <div slot="card-form-content" className="tikitaky-card-form">
+                          <div
+                            slot='card-form-content'
+                            className='tikitaky-card-form'
+                          >
                             <primer-input-card-holder-name
-                              label="Cardholder Name"
-                              placeholder="Name on your card"
-                              aria-label="Full name as it appears on your credit or debit card"
+                              label='Cardholder Name'
+                              placeholder='Name on your card'
+                              aria-label='Full name as it appears on your credit or debit card'
                             ></primer-input-card-holder-name>
-                            <div className="tikitaky-card-form-row">
-                              <div className="tikitaky-card-number-wrapper">
+                            <div className='tikitaky-card-form-row'>
+                              <div className='tikitaky-card-number-wrapper'>
                                 <primer-input-card-number
-                                  label="Card Number"
-                                  placeholder="1234 5678 9012 3456"
-                                  aria-label="Enter your credit or debit card number"
+                                  label='Card Number'
+                                  placeholder='1234 5678 9012 3456'
+                                  aria-label='Enter your credit or debit card number'
                                 ></primer-input-card-number>
                               </div>
-                              <div className="tikitaky-expiry-wrapper">
+                              <div className='tikitaky-expiry-wrapper'>
                                 <primer-input-card-expiry
-                                  label="Expiry"
-                                  placeholder="MM/YY"
-                                  aria-label="Card expiration date"
+                                  label='Expiry'
+                                  placeholder='MM/YY'
+                                  aria-label='Card expiration date'
                                 ></primer-input-card-expiry>
                               </div>
-                              <div className="tikitaky-cvv-wrapper">
+                              <div className='tikitaky-cvv-wrapper'>
                                 <primer-input-cvv
-                                  label="CVV"
-                                  placeholder="•••"
-                                  aria-label="Card security code (CVV)"
+                                  label='CVV'
+                                  placeholder='•••'
+                                  aria-label='Card security code (CVV)'
                                 ></primer-input-cvv>
                               </div>
                             </div>
@@ -232,8 +241,8 @@ export function App() {
 
                         {/* Other Payment Methods in Accordion */}
                         {otherMethods.length > 0 && (
-                          <Accordion title="Other ways to pay">
-                            <div className="tikitaky-other-payment-methods">
+                          <Accordion title='Other ways to pay'>
+                            <div className='tikitaky-other-payment-methods'>
                               {otherMethods.map((method) => (
                                 <primer-payment-method
                                   key={method.type}
@@ -243,21 +252,21 @@ export function App() {
                             </div>
                           </Accordion>
                         )}
-                        
+
                         <primer-error-message-container></primer-error-message-container>
                       </div>
                     </primer-main>
                   </primer-checkout>
                 </div>
               ) : (
-                <div className="tikitaky-loading-payment">
-                  <div className="tikitaky-spinner"></div>
+                <div className='tikitaky-loading-payment'>
+                  <div className='tikitaky-spinner'></div>
                   <p>Loading payment options...</p>
                 </div>
               )}
             </div>
 
-            <div className="tikitaky-checkout-sidebar">
+            <div className='tikitaky-checkout-sidebar'>
               <BookingSummary listing={mockListing} booking={mockBooking} />
             </div>
           </div>

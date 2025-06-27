@@ -5,18 +5,27 @@
   border-radius: var(--tikitaky-border-radius-large);
   background: 
     /* Aged parchment base */
-    radial-gradient(circle at 30% 20%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 70% 80%, rgba(160, 82, 45, 0.03) 0%, transparent 40%),
-    linear-gradient(45deg, 
-      rgba(245, 230, 211, 0.98) 0%, 
-      rgba(245, 230, 211, 1) 25%, 
-      rgba(240, 220, 200, 0.99) 50%, 
-      rgba(245, 230, 211, 1) 75%, 
+    radial-gradient(
+      circle at 30% 20%,
+      rgba(139, 69, 19, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      rgba(160, 82, 45, 0.03) 0%,
+      transparent 40%
+    ),
+    linear-gradient(
+      45deg,
+      rgba(245, 230, 211, 0.98) 0%,
+      rgba(245, 230, 211, 1) 25%,
+      rgba(240, 220, 200, 0.99) 50%,
+      rgba(245, 230, 211, 1) 75%,
       rgba(245, 230, 211, 0.98) 100%
     ),
     var(--tikitaky-parchment);
   margin-top: var(--tikitaky-spacing-lg);
-  box-shadow: 
+  box-shadow:
     var(--tikitaky-shadow-light),
     inset 0 1px 0 rgba(255, 255, 255, 0.3),
     inset 0 -1px 0 rgba(139, 69, 19, 0.1);
@@ -30,14 +39,14 @@
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: 
-    linear-gradient(45deg, 
-      rgba(139, 69, 19, 0.8) 0%, 
-      rgba(160, 82, 45, 0.9) 25%, 
-      rgba(101, 67, 33, 0.8) 50%, 
-      rgba(160, 82, 45, 0.9) 75%, 
-      rgba(139, 69, 19, 0.8) 100%
-    );
+  background: linear-gradient(
+    45deg,
+    rgba(139, 69, 19, 0.8) 0%,
+    rgba(160, 82, 45, 0.9) 25%,
+    rgba(101, 67, 33, 0.8) 50%,
+    rgba(160, 82, 45, 0.9) 75%,
+    rgba(139, 69, 19, 0.8) 100%
+  );
   border-radius: var(--tikitaky-border-radius-large);
   z-index: -1;
 }

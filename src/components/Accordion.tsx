@@ -18,27 +18,25 @@ export const Accordion: React.FC<AccordionProps> = ({ title, children }) => {
   };
 
   return (
-    <div className="tikitaky-accordion">
+    <div className='tikitaky-accordion'>
       <button
-        className="tikitaky-accordion-trigger"
+        className='tikitaky-accordion-trigger'
         onClick={toggleAccordion}
         aria-expanded={isOpen}
-        aria-controls="accordion-content"
+        aria-controls='accordion-content'
       >
-        <span className="tikitaky-accordion-title">{title}</span>
+        <span className='tikitaky-accordion-title'>{title}</span>
         <span className={`tikitaky-accordion-icon ${isOpen ? 'open' : ''}`}>
           ▼
         </span>
       </button>
-      
+
       <div
-        id="accordion-content"
+        id='accordion-content'
         className={`tikitaky-accordion-content ${isOpen ? 'open' : ''}`}
         aria-hidden={!isOpen}
       >
-        <div className="tikitaky-accordion-content-inner">
-          {children}
-        </div>
+        <div className='tikitaky-accordion-content-inner'>{children}</div>
       </div>
     </div>
   );

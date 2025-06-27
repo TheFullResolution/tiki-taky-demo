@@ -4,8 +4,13 @@
   align-items: center;
   justify-content: center;
   background: var(--tikitaky-background);
-  background-image: 
-    linear-gradient(90deg, rgba(139, 69, 19, 0.1) 0%, rgba(139, 69, 19, 0.05) 50%, rgba(139, 69, 19, 0.1) 100%),
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(139, 69, 19, 0.1) 0%,
+      rgba(139, 69, 19, 0.05) 50%,
+      rgba(139, 69, 19, 0.1) 100%
+    ),
     repeating-linear-gradient(
       0deg,
       transparent,
@@ -90,11 +95,20 @@
 }
 
 @keyframes tikitaky-spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes tikitaky-float {
-  0%, 100% { transform: translateX(-50%) translateY(0px); }
-  50% { transform: translateX(-50%) translateY(-10px); }
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
 }
