@@ -1,0 +1,93 @@
+.tikitaky-header {
+  background: var(--tikitaky-gradient-wood);
+  border-bottom: 4px solid var(--tikitaky-bamboo);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--tikitaky-header-height);
+  box-shadow: var(--tikitaky-shadow);
+}
+
+.tikitaky-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+  padding: 0 35px;
+}
+
+.tikitaky-header-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--tikitaky-spacing-sm);
+}
+
+.tikitaky-logo-text {
+  font-family: var(--tikitaky-font-family-headings);
+  font-size: var(--tikitaky-font-size-large);
+  font-weight: var(--tikitaky-font-weight-bold);
+  background: var(--tikitaky-gradient-fire);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.tikitaky-header-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--tikitaky-spacing-lg);
+}
+
+.tikitaky-nav-link {
+  color: var(--tikitaky-text-light);
+  text-decoration: none;
+  font-weight: var(--tikitaky-font-weight-bold);
+  padding: var(--tikitaky-spacing-sm) var(--tikitaky-spacing-md);
+  border-radius: var(--tikitaky-border-radius);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid transparent;
+}
+
+.tikitaky-nav-link:hover {
+  background: var(--tikitaky-bamboo);
+  color: var(--tikitaky-text-primary);
+  border-color: var(--tikitaky-primary);
+  transform: scale(1.05);
+}
+
+.tikitaky-user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--tikitaky-gradient-ocean);
+  border: 3px solid var(--tikitaky-bamboo);
+  box-shadow: var(--tikitaky-shadow-light);
+}
+
+/* Tiki decorative elements for header */
+.tikitaky-header::before {
+  content: '🌴';
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  z-index: 1;
+}
+
+.tikitaky-header::after {
+  content: '🗿';
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  z-index: 1;
+}

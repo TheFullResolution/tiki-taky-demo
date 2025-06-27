@@ -1,0 +1,258 @@
+/* TikiTaky Base Styles - Rumpus Tiki Bar Inspired Design */
+
+:root {
+  /* TikiTaky Brand Colors - Tropical Tiki Theme */
+  --tikitaky-primary: #FF6B35;           /* Vibrant tropical orange */
+  --tikitaky-secondary: #FFD700;         /* Golden yellow */
+  --tikitaky-accent-green: #228B22;      /* Tropical green */
+  --tikitaky-accent-red: #DC143C;        /* Tiki mask red */
+  --tikitaky-wood: #8B4513;              /* Weathered wood brown */
+  --tikitaky-bamboo: #DEB887;            /* Bamboo beige */
+  --tikitaky-parchment: #F5E6D3;         /* Aged parchment */
+  --tikitaky-background: #4A4A4A;        /* Dark weathered wood */
+  --tikitaky-background-light: #F5E6D3;  /* Parchment background */
+  --tikitaky-text-primary: #2F1B14;      /* Dark wood text */
+  --tikitaky-text-secondary: #8B4513;    /* Medium wood text */
+  --tikitaky-text-light: #F5E6D3;        /* Light text on dark backgrounds */
+  
+  /* TikiTaky Typography - Tropical/Adventure Font Stack */
+  --tikitaky-font-family: 'Comic Sans MS', 'Marker Felt', cursive, sans-serif;
+  --tikitaky-font-family-headings: 'Impact', 'Arial Black', sans-serif;
+  --tikitaky-font-size-base: 16px;
+  --tikitaky-font-size-large: 24px;
+  --tikitaky-font-size-xl: 32px;
+  --tikitaky-line-height-base: 1.5;
+  --tikitaky-font-weight-normal: 400;
+  --tikitaky-font-weight-bold: 700;
+  
+  /* TikiTaky Layout & Spacing */
+  --tikitaky-border-radius: 12px;
+  --tikitaky-border-radius-large: 20px;
+  --tikitaky-spacing-xs: 4px;
+  --tikitaky-spacing-sm: 8px;
+  --tikitaky-spacing-md: 16px;
+  --tikitaky-spacing-lg: 24px;
+  --tikitaky-spacing-xl: 32px;
+  --tikitaky-max-width: 1200px;
+  --tikitaky-header-height: 80px;
+  
+  /* TikiTaky Effects & Decorations */
+  --tikitaky-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --tikitaky-shadow-light: 0 2px 10px rgba(139, 69, 19, 0.2);
+  --tikitaky-border-wood: 3px solid var(--tikitaky-wood);
+  --tikitaky-border-bamboo: 2px solid var(--tikitaky-bamboo);
+  
+  /* Gradient Backgrounds */
+  --tikitaky-gradient-fire: linear-gradient(45deg, #FF4500, #FFD700, #FF6347);
+  --tikitaky-gradient-ocean: linear-gradient(135deg, #00CED1, #48D1CC, #40E0D0);
+  --tikitaky-gradient-wood: linear-gradient(180deg, #8B4513, #A0522D, #CD853F);
+  
+  /* Map TikiTaky variables to Primer SDK variables for seamless integration */
+  --primer-color-brand: var(--tikitaky-primary);
+  --primer-color-background-default: var(--tikitaky-background-light);
+  --primer-color-text-primary: var(--tikitaky-text-primary);
+  --primer-typography-body-large-font: var(--tikitaky-font-family);
+  --primer-radius-medium: var(--tikitaky-border-radius);
+  --primer-spacing-md: var(--tikitaky-spacing-md);
+  --primer-color-success: var(--tikitaky-accent-green);
+  --primer-color-warning: var(--tikitaky-secondary);
+  --primer-color-danger: var(--tikitaky-accent-red);
+}
+
+/* Global Reset & Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--tikitaky-font-family);
+  font-size: var(--tikitaky-font-size-base);
+  line-height: var(--tikitaky-line-height-base);
+  color: var(--tikitaky-text-primary);
+  background: #3D3D3D;
+  background-image: 
+    /* Wood grain texture */
+    linear-gradient(90deg, 
+      rgba(139, 69, 19, 0.3) 0%, 
+      rgba(160, 82, 45, 0.2) 25%, 
+      rgba(139, 69, 19, 0.4) 50%, 
+      rgba(160, 82, 45, 0.2) 75%, 
+      rgba(139, 69, 19, 0.3) 100%
+    ),
+    /* Horizontal wood planks */
+    repeating-linear-gradient(
+      0deg,
+      rgba(101, 67, 33, 0.8) 0px,
+      rgba(101, 67, 33, 0.6) 2px,
+      rgba(139, 69, 19, 0.4) 4px,
+      rgba(160, 82, 45, 0.3) 20px,
+      rgba(139, 69, 19, 0.5) 22px,
+      rgba(101, 67, 33, 0.7) 24px
+    ),
+    /* Subtle wood knots */
+    radial-gradient(circle at 20% 30%, rgba(101, 67, 33, 0.6) 2px, transparent 3px),
+    radial-gradient(circle at 80% 70%, rgba(101, 67, 33, 0.5) 1px, transparent 2px);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  display: block !important;
+  place-items: unset !important;
+  min-height: 100vh;
+}
+
+/* TikiTaky-style buttons */
+.tikitaky-button {
+  font-family: var(--tikitaky-font-family-headings);
+  font-weight: var(--tikitaky-font-weight-bold);
+  padding: var(--tikitaky-spacing-md) var(--tikitaky-spacing-lg);
+  border-radius: var(--tikitaky-border-radius-large);
+  border: var(--tikitaky-border-bamboo);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--tikitaky-shadow);
+}
+
+.tikitaky-button--primary {
+  background: var(--tikitaky-gradient-fire);
+  color: var(--tikitaky-text-light);
+  border-color: var(--tikitaky-wood);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tikitaky-button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(255, 107, 53, 0.4);
+}
+
+.tikitaky-button--secondary {
+  background: var(--tikitaky-parchment);
+  color: var(--tikitaky-text-primary);
+  border-color: var(--tikitaky-wood);
+}
+
+.tikitaky-button--secondary:hover {
+  background: var(--tikitaky-bamboo);
+  transform: translateY(-1px);
+}
+
+/* Responsive utilities */
+.tikitaky-container {
+  max-width: var(--tikitaky-max-width);
+  margin: 0 auto;
+  padding: 0 var(--tikitaky-spacing-lg);
+}
+
+/* Tiki-themed utility classes */
+.tikitaky-card {
+  background: 
+    /* Aged parchment base */
+    radial-gradient(circle at 30% 20%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(160, 82, 45, 0.03) 0%, transparent 40%),
+    linear-gradient(45deg, 
+      rgba(245, 230, 211, 0.98) 0%, 
+      rgba(245, 230, 211, 1) 25%, 
+      rgba(240, 220, 200, 0.99) 50%, 
+      rgba(245, 230, 211, 1) 75%, 
+      rgba(245, 230, 211, 0.98) 100%
+    ),
+    var(--tikitaky-parchment);
+  border: var(--tikitaky-border-bamboo);
+  border-radius: var(--tikitaky-border-radius-large);
+  padding: var(--tikitaky-spacing-lg);
+  box-shadow: 
+    var(--tikitaky-shadow-light),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.1);
+  position: relative;
+}
+
+.tikitaky-card::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: 
+    linear-gradient(45deg, 
+      rgba(139, 69, 19, 0.8) 0%, 
+      rgba(160, 82, 45, 0.9) 25%, 
+      rgba(101, 67, 33, 0.8) 50%, 
+      rgba(160, 82, 45, 0.9) 75%, 
+      rgba(139, 69, 19, 0.8) 100%
+    );
+  border-radius: var(--tikitaky-border-radius-large);
+  z-index: -1;
+}
+
+.tikitaky-card::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px solid rgba(139, 69, 19, 0.3);
+  border-radius: calc(var(--tikitaky-border-radius-large) - 4px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tikitaky-heading {
+  font-family: var(--tikitaky-font-family-headings);
+  color: var(--tikitaky-primary);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: var(--tikitaky-spacing-md);
+}
+
+.tikitaky-text-tropical {
+  background: var(--tikitaky-gradient-ocean);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: var(--tikitaky-font-weight-bold);
+}
+
+.tikitaky-text-fire {
+  background: var(--tikitaky-gradient-fire);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: var(--tikitaky-font-weight-bold);
+}
+
+.tikitaky-bamboo-border {
+  border: var(--tikitaky-border-bamboo);
+  border-radius: var(--tikitaky-border-radius);
+}
+
+.tikitaky-wood-border {
+  border: var(--tikitaky-border-wood);
+  border-radius: var(--tikitaky-border-radius);
+}
+
+/* Tropical decorative elements */
+.tikitaky-tropical-bg {
+  background: var(--tikitaky-gradient-ocean);
+  color: var(--tikitaky-text-light);
+}
+
+.tikitaky-fire-bg {
+  background: var(--tikitaky-gradient-fire);
+  color: var(--tikitaky-text-light);
+}
+
+.tikitaky-wood-bg {
+  background: var(--tikitaky-gradient-wood);
+  color: var(--tikitaky-text-light);
+}

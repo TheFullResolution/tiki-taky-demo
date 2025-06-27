@@ -1,0 +1,120 @@
+/* TikiTaky Accordion Component - Bamboo Frame Style */
+
+.tikitaky-accordion {
+  border: var(--tikitaky-border-bamboo);
+  border-radius: var(--tikitaky-border-radius-large);
+  background: 
+    /* Aged parchment base */
+    radial-gradient(circle at 30% 20%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(160, 82, 45, 0.03) 0%, transparent 40%),
+    linear-gradient(45deg, 
+      rgba(245, 230, 211, 0.98) 0%, 
+      rgba(245, 230, 211, 1) 25%, 
+      rgba(240, 220, 200, 0.99) 50%, 
+      rgba(245, 230, 211, 1) 75%, 
+      rgba(245, 230, 211, 0.98) 100%
+    ),
+    var(--tikitaky-parchment);
+  margin-top: var(--tikitaky-spacing-lg);
+  box-shadow: 
+    var(--tikitaky-shadow-light),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.1);
+  position: relative;
+}
+
+.tikitaky-accordion::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: 
+    linear-gradient(45deg, 
+      rgba(139, 69, 19, 0.8) 0%, 
+      rgba(160, 82, 45, 0.9) 25%, 
+      rgba(101, 67, 33, 0.8) 50%, 
+      rgba(160, 82, 45, 0.9) 75%, 
+      rgba(139, 69, 19, 0.8) 100%
+    );
+  border-radius: var(--tikitaky-border-radius-large);
+  z-index: -1;
+}
+
+.tikitaky-accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--tikitaky-spacing-md) var(--tikitaky-spacing-lg);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: var(--tikitaky-font-family-headings);
+  font-size: var(--tikitaky-font-size-base);
+  font-weight: var(--tikitaky-font-weight-bold);
+  color: var(--tikitaky-text-primary);
+  text-align: left;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tikitaky-accordion-trigger:hover {
+  background: var(--tikitaky-gradient-ocean);
+  color: var(--tikitaky-text-light);
+  transform: scale(1.02);
+}
+
+.tikitaky-accordion-trigger:focus {
+  outline: 3px solid var(--tikitaky-primary);
+  outline-offset: -3px;
+}
+
+.tikitaky-accordion-title {
+  flex: 1;
+}
+
+.tikitaky-accordion-icon {
+  font-size: 16px;
+  color: var(--tikitaky-primary);
+  transition: transform 0.3s ease;
+  transform: rotate(-90deg);
+  font-weight: bold;
+}
+
+.tikitaky-accordion-trigger:hover .tikitaky-accordion-icon {
+  color: var(--tikitaky-secondary);
+}
+
+.tikitaky-accordion-icon.open {
+  transform: rotate(0deg);
+}
+
+.tikitaky-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.tikitaky-accordion-content.open {
+  max-height: 500px;
+}
+
+.tikitaky-accordion-content-inner {
+  padding: 0 var(--tikitaky-spacing-lg) var(--tikitaky-spacing-lg);
+  border-top: 2px solid var(--tikitaky-bamboo);
+  background: rgba(255, 215, 0, 0.05);
+}
+
+.tikitaky-other-payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: var(--tikitaky-spacing-sm);
+}
+
+.tikitaky-other-payment-methods primer-payment-method {
+  --primer-color-brand: var(--tikitaky-primary);
+  --primer-typography-body-large-font: var(--tikitaky-font-family);
+}

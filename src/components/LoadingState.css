@@ -1,0 +1,100 @@
+.tikitaky-loading-state {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--tikitaky-background);
+  background-image: 
+    linear-gradient(90deg, rgba(139, 69, 19, 0.1) 0%, rgba(139, 69, 19, 0.05) 50%, rgba(139, 69, 19, 0.1) 100%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 20px,
+      rgba(160, 82, 45, 0.1) 20px,
+      rgba(160, 82, 45, 0.1) 22px
+    );
+  position: relative;
+}
+
+.tikitaky-loading-state::before {
+  content: '🌴 🗿 🌺';
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 48px;
+  animation: tikitaky-float 3s ease-in-out infinite;
+}
+
+.tikitaky-loading-container {
+  text-align: center;
+  padding: var(--tikitaky-spacing-xl);
+  background: var(--tikitaky-parchment);
+  border: var(--tikitaky-border-bamboo);
+  border-radius: var(--tikitaky-border-radius-large);
+  box-shadow: var(--tikitaky-shadow);
+  position: relative;
+}
+
+.tikitaky-loading-container::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: var(--tikitaky-gradient-wood);
+  border-radius: var(--tikitaky-border-radius-large);
+  z-index: -1;
+}
+
+.tikitaky-loading-logo {
+  margin-bottom: var(--tikitaky-spacing-xl);
+}
+
+.tikitaky-logo-placeholder {
+  font-family: var(--tikitaky-font-family-headings);
+  font-size: var(--tikitaky-font-size-xl);
+  font-weight: var(--tikitaky-font-weight-bold);
+  background: var(--tikitaky-gradient-fire);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tikitaky-loading-spinner {
+  margin-bottom: var(--tikitaky-spacing-lg);
+}
+
+.tikitaky-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid var(--tikitaky-bamboo);
+  border-top: 4px solid var(--tikitaky-primary);
+  border-radius: 50%;
+  animation: tikitaky-spin 1.5s linear infinite;
+  margin: 0 auto;
+  box-shadow: var(--tikitaky-shadow-light);
+}
+
+.tikitaky-loading-text {
+  color: var(--tikitaky-text-primary);
+  font-size: var(--tikitaky-font-size-base);
+  font-weight: var(--tikitaky-font-weight-bold);
+  font-family: var(--tikitaky-font-family-headings);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@keyframes tikitaky-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes tikitaky-float {
+  0%, 100% { transform: translateX(-50%) translateY(0px); }
+  50% { transform: translateX(-50%) translateY(-10px); }
+}
